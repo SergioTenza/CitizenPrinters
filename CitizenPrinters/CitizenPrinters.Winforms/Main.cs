@@ -1,10 +1,15 @@
+using Microsoft.Extensions.Logging;
+
 namespace CitizenPrinters.Winforms
 {
     public partial class Main : Form
     {
-        public Main()
+        private readonly ILogger<Main> _logger;
+
+        public Main(ILogger<Main> logger)
         {
             InitializeComponent();
+            _logger = logger;
         }
     }
 }
