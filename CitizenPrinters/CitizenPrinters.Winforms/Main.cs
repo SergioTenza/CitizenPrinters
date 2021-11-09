@@ -10,6 +10,7 @@ namespace CitizenPrinters.Winforms
         {
             InitializeComponent();
             _logger = logger;
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

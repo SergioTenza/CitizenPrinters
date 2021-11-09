@@ -58,27 +58,26 @@ namespace CitizenPrinters.Winforms
         }
         #endregion
         #region EXCEPTION HANDLING
-        static void Application_ThreadException
-        (object sender, System.Threading.ThreadExceptionEventArgs e)
-        {// All exceptions thrown by the main thread are handled over this method
-
+        static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            // All exceptions thrown by the main thread are handled over this method
             ShowExceptionDetails(e.Exception);
         }
 
-        static void CurrentDomain_UnhandledException
-            (object sender, UnhandledExceptionEventArgs e)
-        {// All exceptions thrown by additional threads are handled in this method
-
+        static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            // All exceptions thrown by additional threads are handled in this method
             ShowExceptionDetails(e.ExceptionObject as Exception);
 
-            //// Suspend the current thread for now to stop the exception from throwing.
-            Thread.CurrentThread.Suspend();            
+            // Suspend the current thread for now to stop the exception from throwing.
+            //Thread.CurrentThread.Suspend();            
         }
 
         static void ShowExceptionDetails(Exception Ex)
         {
             // Do logging of exception details
             Log.Logger.Error("Message: " + Ex.Message + "\n" + "Source:" + Ex.Source);
+            MessageBox.Show("Message: " + Ex.Message + "\n" + "Source:" + Ex.Source);
         }
 
         #endregion
