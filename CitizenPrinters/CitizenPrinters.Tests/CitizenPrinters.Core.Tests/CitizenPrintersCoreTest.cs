@@ -4,7 +4,7 @@ using CitizenPrinters.Core.Vb.x86;
 using NUnit.Framework;
 using System;
 
-namespace CitizenPrinters.Tests.CitizenPrinters.Core.Vb.x86
+namespace CitizenPrinters.Tests.CitizenPrinters.Core.Tests
 {
     public class CitizenPrintersCoreTest
     {
