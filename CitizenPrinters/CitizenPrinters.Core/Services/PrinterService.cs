@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CitizenPrinters.Core.Services
 {
-    public class PrinterService : IPrinterService
+    public partial class PrinterService : IPrinterService
     {
-        private CitizenPrinter citizenPrinter;
+        private CitizenPrinter? citizenPrinter;
         public CitizenPrinter Printer => citizenPrinter;
         
         private readonly ILogger<PrinterService> logger;
