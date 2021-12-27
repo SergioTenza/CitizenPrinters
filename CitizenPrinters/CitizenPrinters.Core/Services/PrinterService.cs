@@ -11,7 +11,7 @@ namespace CitizenPrinters.Core.Services
     public class PrinterService : IPrinterService
     {
         private CitizenPrinter citizenPrinter;
-        public CitizenPrinter Printer => throw new NotImplementedException();
+        public CitizenPrinter Printer => citizenPrinter;
         
         private readonly ILogger<PrinterService> logger;
 
@@ -37,7 +37,8 @@ namespace CitizenPrinters.Core.Services
 
         public bool InitializePrinter(string printerName)
         {
-            throw new NotImplementedException();
+            citizenPrinter = new CitizenPrinter(printerName);
+            return Printer is not null;
         }
     }
 }
