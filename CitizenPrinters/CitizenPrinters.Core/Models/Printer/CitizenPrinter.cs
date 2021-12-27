@@ -28,6 +28,15 @@ namespace CitizenPrinters.Core.Models.Printer
             }
             if (name == "CITIZEN CX-02")
             {
+                if (Is64)
+                {
+                    Printer = (IPrinter?)Create(E_CitizenPrinters.CX02_x64);
+                    return;
+                }
+                Printer = (IPrinter?)Create(E_CitizenPrinters.CX02_x86);
+            }
+            if (name == "CITIZEN CX-02W")
+            {
                 throw new NotImplementedException();
             }
         }
@@ -38,12 +47,12 @@ namespace CitizenPrinters.Core.Models.Printer
 
             if (type == null)
             {
-                throw new InvalidOperationException(e_CitizenPrinters.ToString() + " is not a known dto type");
+                throw new InvalidOperationException(e_CitizenPrinters.ToString() + " is not a known printer type");
             }
 
             if (!typeof(Printer).IsAssignableFrom(type))
             {
-                throw new InvalidOperationException(type.Name + " does not inherit from AbstractDto");
+                throw new InvalidOperationException(type.Name + " E_CitizenPrinters");
             }
 
             return (Printer)Activator.CreateInstance(type);
