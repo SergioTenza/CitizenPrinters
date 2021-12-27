@@ -12,7 +12,7 @@ namespace CitizenPrinters.Core.Models.Printer
         public string Name { get; set; }
         public string PortName { get; set; }
         public int PortNumber { get; set; }
-        public IPrinter Printer { get; set; }
+        public Printer Printer { get; set; }
 
         private readonly bool Is64 = IntPtr.Size == 8;
 
@@ -26,6 +26,7 @@ namespace CitizenPrinters.Core.Models.Printer
                     return;
                 }
                 Printer = Create(E_CitizenPrinters.CY_x86);
+                return;
             }
             if (name == "CITIZEN CX-02")
             {
@@ -35,6 +36,7 @@ namespace CitizenPrinters.Core.Models.Printer
                     return;
                 }
                 Printer = Create(E_CitizenPrinters.CX02_x86);
+                return;
             }
             if (name == "CITIZEN CX-02W")
             {
@@ -44,7 +46,9 @@ namespace CitizenPrinters.Core.Models.Printer
                     return;
                 }
                 Printer = Create(E_CitizenPrinters.CX02W_x86);
+                return;
             }
+            Printer = null;
         }
 
         public Printer Create(E_CitizenPrinters e_CitizenPrinters)

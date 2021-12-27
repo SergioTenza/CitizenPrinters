@@ -9,7 +9,7 @@ namespace CitizenPrinters.Core.Services
 {
     public interface IPrinterService
     {
-        CitizenPrinter Printer { get;}
+        Printer? Printer { get;}
         bool InitializePrinter(string printerName);
         string GetStatus();
         int GetPortNumber(string printerName);

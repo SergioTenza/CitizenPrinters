@@ -11,7 +11,7 @@ namespace CitizenPrinters.Core.Services
     public partial class PrinterService : IPrinterService
     {
         private CitizenPrinter? citizenPrinter;
-        public CitizenPrinter Printer => citizenPrinter;
+        public Printer? Printer => GetPrinter();
         
         private readonly ILogger<PrinterService> logger;
 
@@ -40,5 +40,7 @@ namespace CitizenPrinters.Core.Services
             citizenPrinter = new CitizenPrinter(printerName);
             return Printer is not null;
         }
+
+        private Printer? GetPrinter() => citizenPrinter.Printer ?? null;
     }
 }
