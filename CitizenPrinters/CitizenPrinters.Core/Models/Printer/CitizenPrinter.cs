@@ -26,9 +26,13 @@ namespace CitizenPrinters.Core.Models.Printer
                 }
                 Printer = (IPrinter?)Create(E_CitizenPrinters.CY_x86);
             }
+            if (name == "CITIZEN CX-02")
+            {
+                throw new NotImplementedException();
+            }
         }
 
-        public static Printer Create(E_CitizenPrinters e_CitizenPrinters)
+        public Printer Create(E_CitizenPrinters e_CitizenPrinters)
         {
             var type = Type.GetType(typeof(Printer).Namespace + "." + e_CitizenPrinters.ToString(), throwOnError: false);
 

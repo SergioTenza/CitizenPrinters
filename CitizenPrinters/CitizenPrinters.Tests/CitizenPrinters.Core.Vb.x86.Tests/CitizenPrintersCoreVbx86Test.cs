@@ -47,5 +47,36 @@ namespace CitizenPrinters.Tests.CitizenPrinters.Core.Vb.x86
             }
             
         }
+
+        [Test]
+        public void ShouldCreateClassForCX02PrinterAndNotThrowException()
+        {
+
+            /*
+            * What: Try to instantiate a new Printer Class
+            * Where: On Main Form StartUp
+            * When: A printer is selected on Combobox
+            */
+
+            //Given
+            string name = "CITIZEN CX-02";
+
+
+            //When
+            Assert.DoesNotThrow(() => citizenPrinter = new CitizenPrinter(name));
+
+
+            //Then
+            Assert.IsNotNull(citizenPrinter);
+            if (IntPtr.Size == 8)
+            {
+                Assert.IsInstanceOf<CX02_x64>(citizenPrinter.Printer);
+            }
+            else if (IntPtr.Size == 4)
+            {
+                Assert.IsInstanceOf<CX02_x86>(citizenPrinter.Printer);
+            }
+
+        }
     }
 }
