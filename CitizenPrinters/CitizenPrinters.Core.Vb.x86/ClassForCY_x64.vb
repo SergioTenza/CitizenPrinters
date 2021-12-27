@@ -1,8 +1,10 @@
-Option Strict Off
-Option Explicit On
 Imports System.Runtime.InteropServices
 
-Public Module CyStat64
+Public Class ClassForCY_x64
+    Implements IDisposable
+
+    Sub Dispose() Implements IDisposable.Dispose
+    End Sub
 
     Public Const GROUP_USUALLY As Integer = &H10000
     Public Const GROUP_SETTING As Integer = &H20000
@@ -269,4 +271,4 @@ Public Module CyStat64
 
     End Function
 
-End Module
+End Class

@@ -16,4 +16,9 @@
     <PackageReference Include="coverlet.collector" Version="3.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CitizenPrinters.Core.Vb.x86\CitizenPrinters.Core.Vb.vbproj" />
+    <ProjectReference Include="..\CitizenPrinters.Core\CitizenPrinters.Core.csproj" />
+  </ItemGroup>
+
 </Project>

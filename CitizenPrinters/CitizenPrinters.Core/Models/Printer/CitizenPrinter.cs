@@ -12,5 +12,13 @@ namespace CitizenPrinters.Core.Models.Printer
         public string PortName { get; set; }
         public int PortNumber { get; set; }
         public IPrinter Printer { get; set; }
+
+        public CitizenPrinter(string name)
+        {
+            if (name == "CY")
+            {
+                Printer = new CyPrinter();
+            }
+        }
     }
 }

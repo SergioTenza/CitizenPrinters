@@ -1,8 +1,10 @@
-Option Strict Off
-Option Explicit On
 Imports System.Runtime.InteropServices
 
-Public Module CyStat32
+Public Class ClassForCY_x86
+    Implements IDisposable
+
+    Sub Dispose() Implements IDisposable.Dispose
+    End Sub
 
     Public Const GROUP_USUALLY As Integer = &H10000
     Public Const GROUP_SETTING As Integer = &H20000
@@ -167,10 +169,10 @@ Public Module CyStat32
 
 
     '----------------------------------------------------------------------------------- API Wrapper function
-    Public Function SetCommand( _
-            ByVal lPortNum As Integer, _
-            ByVal Cmd As String, _
-            ByVal dwCmdLen As Integer _
+    Public Function SetCommand(
+            ByVal lPortNum As Integer,
+            ByVal Cmd As String,
+            ByVal dwCmdLen As Integer
             ) As Integer
 
         Dim ByteArray As Byte()
@@ -184,13 +186,13 @@ Public Module CyStat32
     End Function
 
 
-    Public Function GetCommand( _
-                    ByVal lPortNum As Integer, _
-                    ByVal Cmd As String, _
-                    ByVal dwCmdLen As Integer, _
-                    ByRef rb As String, _
-                    ByVal dwRetBuffSize As Integer, _
-                    ByRef dwRetLen As Integer _
+    Public Function GetCommand(
+                    ByVal lPortNum As Integer,
+                    ByVal Cmd As String,
+                    ByVal dwCmdLen As Integer,
+                    ByRef rb As String,
+                    ByVal dwRetBuffSize As Integer,
+                    ByRef dwRetLen As Integer
                     ) As Integer
 
         Dim ByteArray As Byte()
@@ -207,12 +209,12 @@ Public Module CyStat32
     End Function
 
 
-    Public Function GetCommandEX( _
-                ByVal lPortNum As Integer, _
-                ByVal Cmd As String, _
-                ByVal dwCmdLen As Integer, _
-                ByRef rb As String, _
-                ByVal dwRetBuffSize As Integer _
+    Public Function GetCommandEX(
+                ByVal lPortNum As Integer,
+                ByVal Cmd As String,
+                ByVal dwCmdLen As Integer,
+                ByRef rb As String,
+                ByVal dwRetBuffSize As Integer
                 ) As Integer
 
         Dim ByteArray As Byte()
@@ -226,10 +228,10 @@ Public Module CyStat32
     End Function
 
 
-    Public Function SetFirmwDataWrite( _
-            ByVal lPortNum As Integer, _
-            ByVal ByteArray() As Byte, _
-            ByVal dwLen As Integer _
+    Public Function SetFirmwDataWrite(
+            ByVal lPortNum As Integer,
+            ByVal ByteArray() As Byte,
+            ByVal dwLen As Integer
             ) As Integer
 
         Dim gchCmd As GCHandle = GCHandle.Alloc(ByteArray, GCHandleType.Pinned)
@@ -241,10 +243,10 @@ Public Module CyStat32
     End Function
 
 
-    Public Function SetColorDataVersion( _
-            ByVal lPortNum As Integer, _
-            ByVal Cmd As String, _
-            ByVal dwCmdLen As Integer _
+    Public Function SetColorDataVersion(
+            ByVal lPortNum As Integer,
+            ByVal Cmd As String,
+            ByVal dwCmdLen As Integer
             ) As Integer
 
         Dim ByteArray As Byte()
@@ -271,4 +273,4 @@ Public Module CyStat32
         gchCmd.Free()
 
     End Function
-End Module
+End Class
