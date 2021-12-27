@@ -3,7 +3,7 @@ Option Explicit On
 Imports System.Runtime.InteropServices
 
 Public Module CyStat32
-    '
+
     Public Const GROUP_USUALLY As Integer = &H10000
     Public Const GROUP_SETTING As Integer = &H20000
     Public Const GROUP_HARDWARE As Integer = &H40000
