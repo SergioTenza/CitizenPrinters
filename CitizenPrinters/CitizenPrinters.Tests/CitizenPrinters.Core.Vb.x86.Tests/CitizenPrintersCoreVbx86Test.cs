@@ -1,13 +1,15 @@
+using CitizenPrinters.Core;
 using CitizenPrinters.Core.Models.Printer;
 using CitizenPrinters.Core.Vb.x86;
 using NUnit.Framework;
+using System;
 
 namespace CitizenPrinters.Tests.CitizenPrinters.Core.Vb.x86
 {
     public class CitizenPrintersCoreVbx86Test
     {
-        private CitizenPrinter citizen;
-        private ClassForCY_x64 ClassCompare;
+        private CitizenPrinter citizenPrinter;
+        
 
         [SetUp]
         public void Setup()
@@ -16,7 +18,7 @@ namespace CitizenPrinters.Tests.CitizenPrinters.Core.Vb.x86
         }
 
         [Test]
-        public void ShouldCreateClassForCyx64AndNotThrowAnyException()
+        public void ShouldCreateClassForCyPrinterAndNotThrowException()
         {
 
             /*
@@ -28,14 +30,22 @@ namespace CitizenPrinters.Tests.CitizenPrinters.Core.Vb.x86
             //Given
             string name = "CY";
 
+
             //When
-            citizen = new CitizenPrinter(name);
-            ClassCompare = new();
+            Assert.DoesNotThrow( () => citizenPrinter = new CitizenPrinter(name) );
+
 
             //Then
-            Assert.IsNotNull(citizen);
-            Assert.IsTrue(citizen.GetType() == ClassCompare.GetType());
-
+            Assert.IsNotNull(citizenPrinter);
+            if (IntPtr.Size == 8)
+            {
+                Assert.IsInstanceOf<CY_x64>(citizenPrinter.Printer);
+            }
+            else if (IntPtr.Size == 4)
+            {
+                Assert.IsInstanceOf<CY_x86>(citizenPrinter.Printer);
+            }
+            
         }
     }
 }
