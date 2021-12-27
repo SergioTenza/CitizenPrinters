@@ -21,23 +21,28 @@ namespace CitizenPrinters.Core.Models.Printer
             {
                 if (Is64)
                 {
-                    Printer = (IPrinter?)Create(E_CitizenPrinters.CY_x64);
+                    Printer = Create(E_CitizenPrinters.CY_x64);
                     return;
                 }
-                Printer = (IPrinter?)Create(E_CitizenPrinters.CY_x86);
+                Printer = Create(E_CitizenPrinters.CY_x86);
             }
             if (name == "CITIZEN CX-02")
             {
                 if (Is64)
                 {
-                    Printer = (IPrinter?)Create(E_CitizenPrinters.CX02_x64);
+                    Printer = Create(E_CitizenPrinters.CX02_x64);
                     return;
                 }
-                Printer = (IPrinter?)Create(E_CitizenPrinters.CX02_x86);
+                Printer = Create(E_CitizenPrinters.CX02_x86);
             }
             if (name == "CITIZEN CX-02W")
             {
-                throw new NotImplementedException();
+                if (Is64)
+                {
+                    Printer = Create(E_CitizenPrinters.CX02W_x64);
+                    return;
+                }
+                Printer = Create(E_CitizenPrinters.CX02W_x86);
             }
         }
 
