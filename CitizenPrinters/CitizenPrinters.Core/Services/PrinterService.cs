@@ -10,16 +10,15 @@ namespace CitizenPrinters.Core.Services
 {
     public class PrinterService : IPrinterService
     {
-        private readonly ICitizenPrinter citizenPrinter;
+        private CitizenPrinter citizenPrinter;
+        public CitizenPrinter Printer => throw new NotImplementedException();
+        
         private readonly ILogger<PrinterService> logger;
 
-        public PrinterService(ICitizenPrinter citizenPrinter, ILogger<PrinterService> logger)
-        {
-            this.citizenPrinter = citizenPrinter;
+        public PrinterService(ILogger<PrinterService> logger)
+        {   
             this.logger = logger;
         }
-
-        public CitizenPrinter Printer => throw new NotImplementedException();
 
         public string GetPortName()
         {

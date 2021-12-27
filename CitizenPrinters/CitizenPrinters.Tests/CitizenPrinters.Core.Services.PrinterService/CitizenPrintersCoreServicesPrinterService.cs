@@ -1,16 +1,21 @@
 using CitizenPrinters.Core.Services;
+using Microsoft.Extensions.Logging;
+using Moq;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 
-namespace CitizenPrinters.Tests.CitizenPrinters.Core.Services.PrinterService.Tests
+namespace CitizenPrintersTests
 {
     public class CitizenPrintersCoreServicesPrinterService
-    {
-        Moq.Mock<IPrinterService> _mockPrinterService;
+    {   
+        private PrinterService printerService;
 
         [SetUp]
         public void Setup()
         {
-            _mockPrinterService = new Moq.Mock<IPrinterService>();
+
+            var logger = Mock.Of<ILogger<PrinterService>>();
+            printerService = new PrinterService(logger);
         }
 
         [Test]
@@ -27,10 +32,10 @@ namespace CitizenPrinters.Tests.CitizenPrinters.Core.Services.PrinterService.Tes
             string printerName = "CY";
 
             //When
-            Assert.DoesNotThrow( ()=> _mockPrinterService.Object.InitializePrinter(printerName));
+            Assert.DoesNotThrow( ()=> printerService.InitializePrinter(printerName));
 
             //Then
-            Assert.IsNotNull(_mockPrinterService.Object.Printer);
+            Assert.IsNotNull(printerService.Printer);
 
         }
     }
