@@ -67,11 +67,11 @@ namespace CitizenPrinters.Winforms
             //Thread.CurrentThread.Suspend();            
         }
 
-        static void ShowExceptionDetails(Exception Ex)
+        static void ShowExceptionDetails(Exception ex)
         {
             // Do logging of exception details
-            Log.Logger.Error("Message: " + Ex.Message + "\n" + "Source:" + Ex.Source);
-            MessageBox.Show("Message: " + Ex.Message + "\n" + "Source:" + Ex.Source);
+            Log.Logger.Error("Message: " + ex.Message + "\n" + "Source:" + ex.Source);
+            MessageBox.Show("Message: " + ex.Message + "\n" + "Source:" + ex.Source);
         }
 
         #endregion
