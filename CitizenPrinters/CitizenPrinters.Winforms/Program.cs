@@ -30,9 +30,9 @@ namespace CitizenPrinters.Winforms
 
             var host = Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
-                {   
+                {
                     services.AddTransient<Main>();
-                    
+
                 })
                 .UseSerilog()
                 .Build();
@@ -40,6 +40,8 @@ namespace CitizenPrinters.Winforms
             #endregion           
             ApplicationConfiguration.Initialize();
             var main = ActivatorUtilities.CreateInstance<Main>(host.Services);
+            AppCenter.Start("d6c836c8-485a-4942-83e0-8b4af8b76b24",
+                   typeof(Analytics), typeof(Crashes));
             Application.Run(main);
         }
         #region DI Builder
