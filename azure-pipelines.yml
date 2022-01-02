@@ -22,9 +22,8 @@ steps:
   inputs:
     version: $(dotNetVersion)
     includePreviewVersions: true
-- script: dotnet build D:\a\_temp\CitizenPrinters\CitizenPrinters\CitizenPrinters.Winforms\CitizenPrinters.Winforms.csproj --configuration $(buildConfiguration)
+- script: dotnet build $(Pipeline.Workspace)\CitizenPrinters\CitizenPrinters.Winforms\CitizenPrinters.Winforms.csproj --configuration $(buildConfiguration)
   displayName: 'Build .NET 6 Application'  
-  workingDirectory: 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
