@@ -12,7 +12,7 @@ pool:
 variables:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   solution: '**/*.sln'
-  checkoutFolderRoot: '$(Build.SourcesDirectory)'
+  checkoutFolderRoot: '$(Build.SourcesDirectory)/CitizenPrinters/CitizenPrinters/CitizenPrinters.Winforms'
   buildConfiguration: 'Release'
   dotNetFramework: 'net6.0'
   dotNetVersion: '6.0.x'
