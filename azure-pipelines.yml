@@ -22,7 +22,7 @@ steps:
     includePreviewVersions: true
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'Build .NET 6 Application'
-  workingDirectory: '\CitizenPrinters\CitizenPrinters.Winforms'
+  workingDirectory: '\CitizenPrinters\CitizenPrinters\CitizenPrinters.Winforms\CitizenPrinters.Winforms.csproj'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
