@@ -10,31 +10,25 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   buildConfiguration: 'Release'
   
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET 6 Core sdk'
   inputs:
     packageType: 'sdk'
     version: '6.0.x'
-    includePreviewVersions: true
 
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   inputs:
-    restoreSolution: '$(solution)'
-
-- task: VSBuild@1
+    command: 'publish'
+    publishWebProjects: false
+    zipAfterPublish: false
+    modifyOutputPath: false
+    arguments: --output $(Build.ArtifactStagingDirectory)
+    
+- task: PublishPipelineArtifact@1
   inputs:
-    solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'CitizenPrinters'
+    publishLocation: 'pipeline'
