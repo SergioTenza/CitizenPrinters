@@ -22,6 +22,7 @@ steps:
     includePreviewVersions: true
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'Build .NET 6 Application'
+  workingDirectory: '\CitizenPrinters\CitizenPrinters.Winforms'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
@@ -29,7 +30,6 @@ steps:
     zipAfterPublish: false
     modifyOutputPath: false
     arguments: --output $(Build.ArtifactStagingDirectory)
-    workingDirectory: '\CitizenPrinters'
     
 - task: PublishPipelineArtifact@1
   inputs:
