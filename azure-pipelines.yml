@@ -11,6 +11,8 @@ pool:
 
 variables:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  solution: '**/*.sln'
+  checkoutFolderRoot: '$(Build.SourcesDirectory)'
   buildConfiguration: 'Release'
   dotNetFramework: 'net6.0'
   dotNetVersion: '6.0.x'
@@ -21,8 +23,7 @@ steps:
     version: $(dotNetVersion)
     includePreviewVersions: true
 - script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'Build .NET 6 Application'
-  workingDirectory: '\CitizenPrinters\CitizenPrinters\CitizenPrinters.Winforms\CitizenPrinters.Winforms.csproj'
+  displayName: 'Build .NET 6 Application'  
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
