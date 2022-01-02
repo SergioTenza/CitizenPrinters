@@ -29,7 +29,7 @@ steps:
     zipAfterPublish: false
     modifyOutputPath: false
     arguments: --output $(Build.ArtifactStagingDirectory)
-    workingDirectory: '\CitizenPrinters\CitizenPrinters.Winforms'
+    workingDirectory: '\CitizenPrinters'
     
 - task: PublishPipelineArtifact@1
   inputs:
