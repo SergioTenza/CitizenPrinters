@@ -12,7 +12,7 @@ pool:
 variables:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   solution: '**/*.sln'
-  checkoutFolderRoot: '$(Build.SourcesDirectory)/CitizenPrinters/CitizenPrinters/CitizenPrinters.Winforms'
+  checkoutFolderRoot: '$(Build.SourcesDirectory)'
   buildConfiguration: 'Release'
   dotNetFramework: 'net6.0'
   dotNetVersion: '6.0.x'
@@ -22,8 +22,9 @@ steps:
   inputs:
     version: $(dotNetVersion)
     includePreviewVersions: true
-- script: dotnet build --configuration $(buildConfiguration)
+- script: dotnet build D:\a\_temp\CitizenPrinters\CitizenPrinters\CitizenPrinters.Winforms\CitizenPrinters.Winforms.csproj --configuration $(buildConfiguration)
   displayName: 'Build .NET 6 Application'  
+  workingDirectory: 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
