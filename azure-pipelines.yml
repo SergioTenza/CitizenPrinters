@@ -12,13 +12,16 @@ pool:
 variables:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   buildConfiguration: 'Release'
+  dotNetFramework: 'net6.0'
+  dotNetVersion: '6.0.x'
   
 steps:
 - task: UseDotNet@2
   inputs:
-    packageType: 'sdk'
-    version: '6.0.x'
-
+    version: $(dotNetVersion)
+    includePreviewVersions: true
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'Build .NET 6 Application'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
