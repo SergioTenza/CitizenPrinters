@@ -13,14 +13,14 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  
-  steps:
-    - task: UseDotNet@2
-      displayName: 'Use .NET 6 Core sdk'
-      inputs:
-        packageType: 'sdk'
-        version: '6.0.x'
-        includePreviewVersions: true
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET 6 Core sdk'
+  inputs:
+    packageType: 'sdk'
+    version: '6.0.x'
+    includePreviewVersions: true
 
 steps:
 - task: NuGetToolInstaller@1
