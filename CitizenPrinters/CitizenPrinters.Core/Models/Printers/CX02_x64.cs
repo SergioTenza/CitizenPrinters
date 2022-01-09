@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CitizenPrinters.Core.Models.Printer
+namespace CitizenPrinters.Core.Models.Printers
 {
     public class CX02_x64 : Printer
     {

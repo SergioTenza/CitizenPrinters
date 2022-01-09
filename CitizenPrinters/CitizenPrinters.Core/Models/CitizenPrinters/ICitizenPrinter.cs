@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CitizenPrinters.Core.Models.Printer
+namespace CitizenPrinters.Core.Models.CitizenPrinters
 {
     public interface ICitizenPrinter
     {

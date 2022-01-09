@@ -1,11 +1,7 @@
 ﻿using CitizenPrinters.Core.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CitizenPrinters.Core.Models.Printers;
 
-namespace CitizenPrinters.Core.Models.Printer
+namespace CitizenPrinters.Core.Models.CitizenPrinters
 {
     public class CitizenPrinter : ICitizenPrinter
     {

@@ -1,10 +1,6 @@
-﻿using CitizenPrinters.Core.Models.Printer;
+﻿using CitizenPrinters.Core.Models.CitizenPrinters;
+using CitizenPrinters.Core.Models.Printers;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CitizenPrinters.Core.Services
 {
@@ -12,11 +8,11 @@ namespace CitizenPrinters.Core.Services
     {
         private CitizenPrinter? citizenPrinter;
         public Printer? Printer => GetPrinter();
-        
+
         private readonly ILogger<PrinterService> logger;
 
         public PrinterService(ILogger<PrinterService> logger)
-        {   
+        {
             this.logger = logger;
         }
 

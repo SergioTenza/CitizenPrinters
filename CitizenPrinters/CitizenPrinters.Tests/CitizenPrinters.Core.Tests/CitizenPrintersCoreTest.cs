@@ -1,5 +1,6 @@
 using CitizenPrinters.Core;
-using CitizenPrinters.Core.Models.Printer;
+using CitizenPrinters.Core.Models.CitizenPrinters;
+using CitizenPrinters.Core.Models.Printers;
 using CitizenPrinters.Core.Vb.x86;
 using NUnit.Framework;
 using System;
