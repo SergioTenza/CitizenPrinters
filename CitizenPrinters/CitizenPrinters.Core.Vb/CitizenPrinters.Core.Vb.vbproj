@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>CitizenPrinters.Core.Vb.x86</RootNamespace>
+    <RootNamespace>CitizenPrinters.Core.Vb</RootNamespace>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 

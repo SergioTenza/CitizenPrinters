@@ -1,3 +1,5 @@
+using CitizenPrinters.Core.Razor;
+using Microsoft.AspNetCore.Components.WebView.WindowsForms;
 using Microsoft.Extensions.Logging;
 
 namespace CitizenPrinters.Winforms
@@ -11,6 +13,9 @@ namespace CitizenPrinters.Winforms
             InitializeComponent();
             _logger = logger;
             this.WindowState = FormWindowState.Maximized;
+            blazorWebView1.HostPage = @"wwwroot\index.html";
+            blazorWebView1.Services = Program.container.Services;
+            blazorWebView1.RootComponents.Add<App>("#app");
         }
     }
 }

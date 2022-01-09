@@ -1,7 +1,10 @@
+using CitizenPrinters.BlazorServer.Data;
+
 namespace CitizenPrinters.Winforms
 {
     internal static class Program
     {
+        public static IHost container;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -28,10 +31,12 @@ namespace CitizenPrinters.Winforms
 
             Log.Logger.Information("Starting App");
 
-            var host = Host.CreateDefaultBuilder()
+            container = Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
                     services.AddTransient<Main>();
+                    services.AddBlazorWebView();
+                    services.AddSingleton<WeatherForecastService>();
 
                 })
                 .UseSerilog()
@@ -39,7 +44,7 @@ namespace CitizenPrinters.Winforms
 
             #endregion           
             ApplicationConfiguration.Initialize();
-            var main = ActivatorUtilities.CreateInstance<Main>(host.Services);
+            var main = ActivatorUtilities.CreateInstance<Main>(container.Services);
             AppCenter.Start("d6c836c8-485a-4942-83e0-8b4af8b76b24",
                    typeof(Analytics), typeof(Crashes));
             Application.Run(main);

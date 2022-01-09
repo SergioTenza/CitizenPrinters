@@ -1,4 +1,4 @@
-﻿using CitizenPrinters.Core.Vb.x86;
+﻿using CitizenPrinters.Core.Vb;
 using System;
 using System.Collections.Generic;
 using System.Linq;
