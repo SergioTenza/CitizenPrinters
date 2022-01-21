@@ -56,8 +56,8 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      Solution_Name: **\CitizenPrinters\CitizenPrinters.sln                         
-      Test_Project_Path: **\CitizenPrinters\CitizenPrinters\CitizenPrinters.Test\CitizenPrinters.Tests.csproj
+      Solution_Name: CitizenPrinters\CitizenPrinters.sln                         
+      Test_Project_Path: CitizenPrinters\CitizenPrinters\CitizenPrinters.Test\CitizenPrinters.Tests.csproj
     steps:
     - name: Checkout
       uses: actions/checkout@v2
