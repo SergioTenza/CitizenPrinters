@@ -57,7 +57,7 @@ jobs:
 
     env:
       Solution_Name: CitizenPrinters.sln                         
-      Test_Project_Path: CitizenPrinters/CitizenPrinters/CitizenPrinters.Test/CitizenPrinters.Tests.csproj
+      Test_Project_Path: CitizenPrinters\CitizenPrinters\CitizenPrinters.Test\CitizenPrinters.Tests.csproj
     steps:
     - name: Checkout
       uses: actions/checkout@v2
