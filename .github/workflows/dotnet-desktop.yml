@@ -54,10 +54,6 @@ jobs:
 
     runs-on: windows-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
-
-    env:
-      Solution_Name: CitizenPrinters\CitizenPrinters.sln                         
-      Test_Project_Path: CitizenPrinters\CitizenPrinters\CitizenPrinters.Test\CitizenPrinters.Tests.csproj
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -69,11 +65,15 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.0.2
-
+        
+    # Restore nuget packages of App
+    - name: Restore dependicies
+      run: dotnet restore
+      
+      # Restore nuget packages of App
+    - name: Build artifacts
+      run: dotnet build -c Release --no-restore
+      
     # Execute all unit tests in the solution
     - name: Execute unit tests
       run: dotnet test
