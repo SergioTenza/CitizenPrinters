@@ -47,7 +47,6 @@ on:
 jobs:
 
   build:
-
     strategy:
       matrix:
         configuration: [Debug, Release]
@@ -55,10 +54,19 @@ jobs:
     runs-on: windows-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
     steps:
+    
+    # Where the heck I´m
+    - name: Where I´m
+      run: dir
+    
     - name: Checkout
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    
+    # Where the heck I´m
+    - name: Where I´m
+      run: dir
 
     # Install the .NET Core workload
     - name: Install .NET Core
@@ -66,8 +74,9 @@ jobs:
       with:
         dotnet-version: 6.0.x
         
+        
     # Restore nuget packages of App
-    - name: Restore dependicies
+    - name: Restore dependencies
       run: dotnet restore
       
       # Restore nuget packages of App
