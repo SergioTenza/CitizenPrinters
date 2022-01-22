@@ -77,7 +77,7 @@ jobs:
         
     # Call the correct directory
     - name: Call repo directory
-      run: cd D:\a\CitizenPrinters\
+      run: cd D:\a\CitizenPrinters\CitizenPrinters\
       
     # Restore nuget packages of App
     - name: Restore dependencies
