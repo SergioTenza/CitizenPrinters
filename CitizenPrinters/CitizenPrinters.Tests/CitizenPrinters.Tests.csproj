@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CitizenPrinters.Core.Vb.x86\CitizenPrinters.Core.Vb.vbproj" />
+    <ProjectReference Include="..\CitizenPrinters.Core.Vb\CitizenPrinters.Core.Vb.vbproj" />
     <ProjectReference Include="..\CitizenPrinters.Core\CitizenPrinters.Core.csproj" />
   </ItemGroup>
 
