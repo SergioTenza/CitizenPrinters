@@ -75,6 +75,10 @@ jobs:
         dotnet-version: 6.0.x
         
         
+    # Call the correct directory
+    - name: Call repo directory
+      run: cd D:\a\CitizenPrinters\
+      
     # Restore nuget packages of App
     - name: Restore dependencies
       run: dotnet restore
