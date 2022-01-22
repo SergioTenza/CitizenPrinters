@@ -2,14 +2,13 @@ using CitizenPrinters.BlazorServer.Data;
 
 namespace CitizenPrinters.Winforms
 {
-    internal static class Program
-    {
-        public static IHost container;
+    public static class Program
+    {   
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             #region Exception Delegates Handling
             //Winforms Exception Handling
@@ -31,23 +30,16 @@ namespace CitizenPrinters.Winforms
 
             Log.Logger.Information("Starting App");
 
-            container = Host.CreateDefaultBuilder()
-                .ConfigureServices((context, services) =>
-                {
-                    services.AddTransient<Main>();
-                    services.AddBlazorWebView();
-                    services.AddSingleton<WeatherForecastService>();
-
-                })
-                .UseSerilog()
-                .Build();
-
-            #endregion           
-            ApplicationConfiguration.Initialize();
-            var main = ActivatorUtilities.CreateInstance<Main>(container.Services);
-            AppCenter.Start("d6c836c8-485a-4942-83e0-8b4af8b76b24",
-                   typeof(Analytics), typeof(Crashes));
-            Application.Run(main);
+            using (var container = BuildHost(args).Build())
+            {
+                ApplicationConfiguration.Initialize();
+                var main = ActivatorUtilities.CreateInstance<Main>(container.Services);
+                AppCenter.Start("d6c836c8-485a-4942-83e0-8b4af8b76b24",
+                       typeof(Analytics), typeof(Crashes));
+                Application.Run(main);
+            }
+            #endregion
+            
         }
         #region DI Builder
         static void BuildConfig(IConfigurationBuilder builder)
@@ -56,6 +48,18 @@ namespace CitizenPrinters.Winforms
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("GRV_ENVIROMENT") ?? "Production"}.json", optional: true, reloadOnChange: true)
                 .AddEnvironmentVariables();
+        }
+
+        static IHostBuilder BuildHost(string[] args)
+        {
+            return Host.CreateDefaultBuilder()
+                .ConfigureServices((context, services) =>
+                {
+                    services.AddTransient<Main>();
+                    services.AddBlazorWebView();
+                    services.AddSingleton<WeatherForecastService>();
+                })
+                .UseSerilog();
         }
         #endregion
         #region EXCEPTION HANDLING
