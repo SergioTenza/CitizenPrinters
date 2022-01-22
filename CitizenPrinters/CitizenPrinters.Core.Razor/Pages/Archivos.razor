@@ -1,0 +1,39 @@
+﻿@page "/archivos"
+
+<PageTitle>Archivos</PageTitle>
+
+<h3>Archivos</h3>
+
+<div class="container">
+    @if (carpetas == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <div class="row row-cols-4 row-cols-md-8 g-2">
+             @foreach (var carpeta in carpetas)
+            {
+                <Folder FolderName=carpeta/>
+            }
+        </div>
+    }
+</div>
+
+
+
+@code {
+    private List<string>? carpetas;
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Run(() =>
+        {
+            carpetas = new();
+            for (var i = 0; i < 15; i++)
+            {
+                carpetas.Add($"Carpeta {i}");
+            }
+        });
+        
+    }
+}

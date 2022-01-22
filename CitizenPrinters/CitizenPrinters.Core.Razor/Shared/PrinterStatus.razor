@@ -1,0 +1,31 @@
+﻿<div class="col">
+    <div class ="row">
+        <div class= "col">
+            <p>@PrinterName</p>
+            <p>
+                <img src="..." class="img-thumbnail" alt="printer-name">
+            </p>
+            <p>
+                 <span class="oi oi-wrench" aria-hidden="true"></span> Home
+            </p>
+        </div>
+        <div class= "col">
+             <p>@PrinterName</p>
+             <p>
+                <img src="..." class="img-thumbnail" alt="status-dot">
+             </p>
+             <p>@PrinterName</p>
+             <p>@PrinterName</p>
+             <p>
+                <img src="..." class="img-thumbnail" alt="config-icon">
+             </p>
+        </div>
+    </div>
+</div>
+
+
+@code
+{
+    [Parameter]
+    public string PrinterName { get; set; }
+}

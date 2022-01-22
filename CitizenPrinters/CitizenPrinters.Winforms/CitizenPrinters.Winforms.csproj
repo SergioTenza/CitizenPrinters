@@ -16,6 +16,12 @@
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Remove="wwwroot\img\citizen.png" />
+	  <Content Remove="wwwroot\img\folder.png" />
+	  <Content Remove="wwwroot\img\matfotoOriginal.png" />
+	</ItemGroup>
 	
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.4.0" />
