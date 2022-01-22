@@ -79,6 +79,10 @@ jobs:
     - name: Call repo directory
       run: cd D:\a\CitizenPrinters\CitizenPrinters\
       
+    # Where the heck I´m
+    - name: Where I´m
+      run: dir
+      
     # Restore nuget packages of App
     - name: Restore dependencies
       run: dotnet restore
