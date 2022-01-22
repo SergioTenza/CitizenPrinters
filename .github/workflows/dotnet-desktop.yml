@@ -83,6 +83,10 @@ jobs:
     - name: Where I´m
       run: dir
       
+    # Call the correct directory
+    - name: Call repo directory
+      run: cd CitizenPrinters
+      
     # Restore nuget packages of App
     - name: Restore dependencies
       run: dotnet restore
