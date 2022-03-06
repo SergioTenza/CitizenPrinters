@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "CitizenPrinters.WinUI (Package)": {
+      "commandName": "MsixPackage",
+      "nativeDebugging": false
+    },
+    "CitizenPrinters.WinUI (Unpackaged)": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}
