@@ -2,12 +2,19 @@
     x:Class="CitizenPrinters.WinUI.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CitizenPrinters.WinUI.Tests.UI"
+    xmlns:local="using:CitizenPrinters.WinUI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-    </StackPanel>
+    <NavigationView x:Name="NavigationView">
+        <NavigationView.MenuItems>
+            <NavigationViewItem Icon="Save" Content="Añadir Archivos" Tag="FilesPAge" />
+            <NavigationViewItem Icon="Print" Content="Impresion Fotografias" Tag="PrintPage" />
+            <NavigationViewItem Icon="Pictures" Content="Impresion Carnet" Tag="CarnetPage" />           
+        </NavigationView.MenuItems>
+        <Frame x:Name="contentFrame">
+           
+        </Frame>
+    </NavigationView>
 </Window>

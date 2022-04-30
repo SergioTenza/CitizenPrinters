@@ -30,10 +30,5 @@ namespace CitizenPrinters.WinUI
             this.InitializeComponent();
             _mainViewModel = new MainViewModel();
         }
-
-        private void myButton_Click(object sender, RoutedEventArgs e)
-        {
-            myButton.Content = "Clicked";
-        }
     }
 }
